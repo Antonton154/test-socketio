@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <script src="../socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      let socket = io();
+      socket.on('connect', () => {
+        console.log('Connection Success');
+        socket.emit('client-send-data', 'Hello Server');
+      })
+    </script>
+  </body>
+</html>
